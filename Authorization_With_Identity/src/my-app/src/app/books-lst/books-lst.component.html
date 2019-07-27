@@ -1,0 +1,31 @@
+<p>books-lst works!</p>
+<table class="table" *ngIf="dataavailbale">
+    <thead>
+      <tr>
+        <th scope="col">Book Num</th>
+        <th scope="col">Name</th>
+        <th scope="col">published In</th>
+        <th scope="col">Image</th>
+        <th scope="col" style="align-content: center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of booksLst let i = index ">
+        <td scope="col">{{i+1}}</td>
+        <td scope="col">{{e.name}}</td>
+        <td scope="col">{{e.publishedIn}}</td>
+        <td scope="col"><span class="pull-right">
+            <img
+              [src]="e.imageUrl"
+              alt="{{ e.name }}"
+              class="img-responsive"
+              style="max-height: 50px;">
+          </span></td>
+        <td scope="col">
+              <button type="button" class="btn btn-default btn-primary" (click)="Borrow(e.id)">
+            <span class="glyphicon glyphicon-trash"></span> Borrow
+          </button> 
+        </td>
+      </tr>
+    </tbody>
+  </table>

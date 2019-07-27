@@ -1,0 +1,60 @@
+<div class="row" >
+    <div class="col-sm-5"></div>
+    <div >
+<div class="col-sm-12">
+        <h3>Borrow Book :</h3>
+        <label style="font-size: larger;font-family: fantasy" for="name">{{currentbook.name}} </label>
+
+</div>            <span class="pull-right">
+                <img
+                  [src]="currentbook.imageUrl"
+                  alt="{{ currentbook.name }}"
+                  class="img-responsive"
+                  style="max-height: 100px;">
+              </span>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+<div class="row" style="margin-top: 10px">
+<div class="col-sm-2"></div>
+        <div class="col-sm-8" style="border:1px solid darkgray;">
+                <div class="row">
+                               <div class=col-sm-3></div>
+                               <div class=col-sm-5>
+                                    <label style="margin-right: 10px" for="name">Borrow From </label>
+                                    <mat-form-field>
+                                            <input matInput [matDatepicker]="picker" placeholder="Choose a date"
+                                                    (dateChange)="borrowFromEvent('change', $event)">
+                                            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                                            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                          </mat-form-field>                                 
+                               </div>
+                               <div class=col-sm-3></div>                             
+                </div>
+                
+                <div class="row">
+                        <div class=col-sm-3></div>
+                        <div class=col-sm-5>
+                                <label style="margin-right: 10px" for="name">Borrow To </label>
+
+                             <mat-form-field>
+                                     <input matInput [matDatepicker]="pickerreturn" placeholder="Choose a date"
+                                     (dateChange)="borrowtoEvent('change', $event)">
+                                     <mat-datepicker-toggle matSuffix [for]="pickerreturn"></mat-datepicker-toggle>
+                                     <mat-datepicker #pickerreturn startView="year" [startAt]="startDate"></mat-datepicker>
+                                   </mat-form-field>
+                        </div>
+                        <div class=col-sm-3></div>
+                </div>
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-5">
+                            <button type="button" class="btn btn-default btn-primary" (click)="borrow()">
+                                    <span class="glyphicon glyphicon-trash"></span> Save
+                                  </button> 
+                    </div>
+                    <div class="col-sm-3"></div>
+                
+                </div>
+                </div>
+</div>
